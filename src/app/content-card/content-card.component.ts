@@ -8,5 +8,11 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent {
-  @Input()  content!: Content;
+  @Input() car: any;
+  @Input() class: string = '';
+  defaultCar: string = '/assets/images/Car.png';
+
+  handleClick(content: Content) {
+    console.log(`ID: ${content.id}, Title: ${content.title}`);
+  }
 }

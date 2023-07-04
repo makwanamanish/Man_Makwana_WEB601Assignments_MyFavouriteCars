@@ -1,24 +1,37 @@
-<app-create-content (createContentEvent)="addContent($event)"></app-create-content>
+<main>
+    <section class="searchForTitle">
+        <div>
+            <input type="text" [(ngModel)]="searchTitle" placeholder="Search Title here...">
+            <button (click)="searchByTitle()">Search</button>
+        </div>
+        <div *ngIf="titleFound !== null">
+            <p [style.color]="titleFound ? 'green' : 'red'">
+                {{titleFound ? 'Car Exist' : 'Car Not Exist'}}
+            </p>
+        </div>
+    </section>
 
+    <h1>Cars with No Type</h1>
 
-<input type="text" [(ngModel)]="searchTitle" placeholder="Enter a title">
-<button (click)="searchByTitle()">Search</button>
-<p [ngStyle]="{ color: searchResult ? 'green' : 'red' }">{{ searchMessage }}</p>
+    <section class="cards">
+        <div *ngFor="let content of contents | typeFilter:''" appHoverAffect="border">
+            <app-content-card [car]="content" [class]="''"></app-content-card>
+        </div>
+    </section>
 
-<div *ngFor="let content of contents | typeFilter: ''" [class.highlight]="content.title === searchTitle"></div>
-  
-<h2>Content with No Type</h2>
-<app-content-card *ngFor="let content of contents | typeFilter:''" [content] = "content"></app-content-card>
+    <h1>American Cars</h1>
 
-<h2>Content with American Cars</h2>
-<app-content-card *ngFor="let content of contents | typeFilter: 'American'" [content] = "content"></app-content-card>
+    <section class="cards">
+        <div *ngFor="let content of contents | typeFilter:'American'" appHoverAffect="border">
+            <app-content-card [car]="content" [class]="'American'"></app-content-card>
+        </div>
+    </section>
 
-<h2>Content with Japanese Cars</h2>
-<app-content-card *ngFor="let content of contents | typeFilter: 'Japanese'" [content] = "content"></app-content-card>
+    <h1>Japanese Cars</h1>
 
-<div *ngFor="let item of contents.slice(-1)" style="text-align: center; border: 5px solid #240c0c;">
-    <h1>{{ item.id }}</h1>
-    <h2>{{ item.title }}</h2>
-    <h2>{{ item.description }}</h2>
-    <h2>{{ item.creator }}</h2>
-</div>
+    <section class="cards">
+        <div *ngFor="let content of contents | typeFilter:'Japanese'" appHoverAffect="border">
+            <app-content-card [car]="content" [class]="'Japanese'"></app-content-card>
+        </div>
+    </section>
+</main>

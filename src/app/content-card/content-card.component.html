@@ -1,8 +1,17 @@
-<div class="content-card">
-    <p>{{ content.title }}</p>
-    <p>{{ content.description }}</p>
-    <p>{{ content.creator }}</p>
-    <img [src]="content.image || 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80'">
-    <p [appHoverAffect]="'text-decoration'">{{ content.type }}</p>
-  <p *ngFor="let tag of content.tags" [appHoverAffect]="'font-weight'">{{ tag }}</p>
+<div [id]="car.id" [ngClass]="['card', class]" appHoverAffect="border">
+
+  <div *ngIf="car.image; else defaultImage">
+      <img  [src]="car.image" alt={{car.title}} (click)="handleClick(car)">
+  </div>
+  <ng-template #defaultImage>
+      <img [src]="defaultCar" alt={{car.title}} (click)="handleClick(car)">
+  </ng-template>
+
+  <h2>{{car.title}}</h2>
+  <p>{{car.description}}</p>
+  <p><strong>Creator:</strong> {{car.creator}}</p>
+  <p *ngIf="car.type" appHoverAffect="underline"><strong>Type:</strong> {{car.type}}</p>
+  <p *ngIf="car.tags"><strong>Tags:</strong> 
+      <span *ngFor="let tag of car.tags" appHoverAffect="bold">#{{ tag }}</span>
+  </p>
 </div>
