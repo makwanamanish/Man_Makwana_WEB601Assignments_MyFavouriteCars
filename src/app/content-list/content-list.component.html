@@ -1,17 +1,14 @@
-<div class="content-list">
+<input type="text" [(ngModel)]="searchTitle" placeholder="Enter a title">
+<button (click)="searchByTitle()">Search</button>
+<p [ngStyle]="{ color: searchResult ? 'green' : 'red' }">{{ searchMessage }}</p>
 
-    <div *ngFor="let content of contents, let first = first" class="content-card" [ngClass]="{ 'border': first }">
+<div *ngFor="let content of contents | typeFilter: ''" [class.highlight]="content.title === searchTitle"></div>
+  
+<h2>Content with No Type</h2>
+<app-content-card *ngFor="let content of contents | typeFilter:''" [content] = "content"></app-content-card>
 
-        <h2>{{ content.title }}</h2>
-        
-        <img [src]="content.image" (click)="displayDetails(content)">
-        
-        <p>{{ content.description }}</p>
-        
-        <p>Creator: {{ content.creator }}</p>
-        
-        <p>Type: {{ content.type }}</p>
-        
-        <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
-    </div>
-</div>
+<h2>Content with American Cars</h2>
+<app-content-card *ngFor="let content of contents | typeFilter: 'American'" [content] = "content"></app-content-card>
+
+<h2>Content with Japanese Cars</h2>
+<app-content-card *ngFor="let content of contents | typeFilter: 'Japanese'" [content] = "content"></app-content-card>
