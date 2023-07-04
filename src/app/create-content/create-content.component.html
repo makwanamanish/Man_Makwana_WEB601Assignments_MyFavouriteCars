@@ -1,0 +1,22 @@
+<input type="text" [(ngModel)]="newContent.id" placeholder="ID">
+
+<button (click)="createContent()">Create</button><br><br>
+
+<div>
+    <label for="title"><b>Title:    </b></label>
+    <input type="text" id="title" [(ngModel)]="newContent.title" required>
+</div>
+
+<div>
+    <label for="description"><b>Description:</b></label>
+    <input type="text" id="description" [(ngModel)]="newContent.description" required>
+</div>
+
+<div>
+    <label for="creator"><b>Creator:</b></label>
+    <input type="text" id="creator" [(ngModel)]="newContent.creator" required>
+</div><br>
+
+<div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<button (click)="createContent()">Submit</button><br>

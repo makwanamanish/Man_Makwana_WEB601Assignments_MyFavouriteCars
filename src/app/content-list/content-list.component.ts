@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Content } from '../helper-files/content-interface';
 
 @Component({
   selector: 'app-content-list',
@@ -80,6 +81,11 @@ export class ContentListComponent {
   displayDetails(content: any) {
     console.log('ID:', content.id);
     console.log('Title:', content.title);
+  }
+
+  addContent(newContent: Content) {
+    this.contents.push(newContent);
+    this.contents = [...this.contents]; 
   }
 
 }

@@ -1,0 +1,30 @@
+div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #1e90ff;
+  }
+  
+  .error-message {
+    color: #ff0000;
+    margin-top: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #999;
+  }
+  
