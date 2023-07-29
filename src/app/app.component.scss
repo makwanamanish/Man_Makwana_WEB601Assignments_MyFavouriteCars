@@ -1,0 +1,43 @@
+.carById-sec {
+    padding: 30px;
+  
+    .idForm {
+      margin-bottom: 50px;
+      text-align: center;
+  
+      form {
+        max-width: 400px;
+        margin: auto;
+  
+        input {
+          //width: 100%;
+          padding: 10px 15px;
+          //border: 2px solid #333;
+          border-radius: 4px;
+          font-size: 16px;
+        }
+  
+        // button {
+        //   color: #fff;
+        //   cursor: pointer;
+        //   padding: 10px 15px;
+        //   border: none;
+        //   border-radius: 4px;
+        //   background-color: #1d1d1d;
+        //   font-size: 16px;
+        //   margin-top: 10px;
+        // }
+      }
+    }
+  }
+  
+  .oneCard {
+    min-width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  

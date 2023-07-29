@@ -1,0 +1,55 @@
+<div>
+    <h1 mat-dialog-title>Add New Car</h1>
+    <mat-dialog-content>
+        <form class="newCarForm" (submit)="addNewCar()">
+
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label for="id">ID</mat-label> 
+              <input matInput type="text" id="id" name="id" [(ngModel)]="newCar.id">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label for="title">Title</mat-label> 
+              <input matInput type="text" id="title" name="title" [(ngModel)]="newCar.title" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label for="desc">Description</mat-label>
+              <textarea matInput name="description" id="desc" cols="30" rows="4" [(ngModel)]="newCar.description" required></textarea>
+            </mat-form-field> 
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label for="creator">Creator</mat-label>
+              <input matInput type="text" id="creator" name="creator" [(ngModel)]="newCar.creator" required>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label for="type">Type</mat-label>
+              <input matInput type="text" id="type" name="type" [(ngModel)]="newCar.type">
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label for="img">Image Url</mat-label>
+              <input matInput type="text" id="img" name="img" [(ngModel)]="newCar.image">
+            </mat-form-field>
+          </div>
+
+          <div class="addBtn">
+            <mat-dialog-actions>
+                <button mat-raised-button mat-dialog-close color="accent">Close <mat-icon>Close</mat-icon></button>
+                <button mat-raised-button color="primary" [mat-dialog-close]="newCar" type="submit">Add Car <mat-icon>Add</mat-icon></button>
+            </mat-dialog-actions>
+          </div>
+        </form>
+    </mat-dialog-content>
+</div>

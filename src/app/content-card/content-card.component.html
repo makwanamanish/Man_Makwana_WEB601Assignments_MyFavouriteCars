@@ -1,0 +1,23 @@
+<mat-card [id]="car.id" [ngClass]="['card', class]" appHoverAffect="border">
+    <mat-card-header [matTooltip]="car.title" [matTooltipPosition]="'above'">
+        <div class="card-img">
+            <div *ngIf="car.image; else defaultImage">
+                <img mat-card-image  [src]="car.image" alt={{car.title}} (click)="handleClick(car)">
+            </div>
+            <ng-template #defaultImage>
+                <img mat-card-image [src]="defaultCar" alt={{car.title}} (click)="handleClick(car)">
+            </ng-template>
+        </div>
+    </mat-card-header>
+    <mat-card-content class="card-body">
+        <h2>{{car.title}}</h2>
+        <p>{{car.description}}</p>
+        <p><strong>Creator:</strong> {{car.creator}}</p>
+    </mat-card-content>
+    <mat-card-footer>
+        <p *ngIf="car.type" appHoverAffect="underline"><strong>Type:</strong> {{car.type}}</p>
+        <p *ngIf="car.tags"><strong>Tags:</strong> 
+            <span *ngFor="let tag of car.tags" appHoverAffect="bold"> #{{tag}}, </span>
+        </p>
+    </mat-card-footer>
+</mat-card>

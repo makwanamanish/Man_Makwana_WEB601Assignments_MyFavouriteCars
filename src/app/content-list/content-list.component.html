@@ -1,0 +1,41 @@
+<main>
+    <app-modify-content (addCarEvent)="addNewCar($event)"></app-modify-content>
+    <section class="searchForTitle">
+        <div>
+            <mat-form-field>
+                <mat-label>Search For Title</mat-label>
+                <input matInput type="text" [(ngModel)]="searchTitle" placeholder="Search Title Here...">
+            </mat-form-field> <br>
+            <button mat-raised-button color="primary" (click)="searchByTitle()">Search <mat-icon>Search</mat-icon></button>
+        </div>
+        <div *ngIf="titleFound !== null">
+            <p [style.color]="titleFound ? 'green' : 'red'">
+                {{titleFound ? 'Car Exist' : 'Car Not Exist'}}
+            </p>
+        </div>
+    </section>
+
+    <h1>Cars with No Type</h1>
+
+    <section class="cards">
+        <div *ngFor="let content of contents | typeFilter:''" appHoverAffect="border">
+            <app-content-card [car]="content" [class]="''"></app-content-card>
+        </div>
+    </section>
+
+    <h1>American Cars</h1>
+
+    <section class="cards">
+        <div *ngFor="let content of contents | typeFilter:'American'" appHoverAffect="border">
+            <app-content-card [car]="content" [class]="'American'"></app-content-card>
+        </div>
+    </section>
+
+    <h1>Japanese Cars</h1>
+
+    <section class="cards">
+        <div *ngFor="let content of contents | typeFilter:'Japanese'" appHoverAffect="border">
+            <app-content-card [car]="content" [class]="'Japanese'"></app-content-card>
+        </div>
+    </section>
+</main>

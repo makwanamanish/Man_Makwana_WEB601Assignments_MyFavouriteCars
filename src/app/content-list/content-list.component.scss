@@ -1,0 +1,47 @@
+.content-list {
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.border {
+    border: 2px solid black;
+}
+
+.content-card {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 2px;
+    margin: 0;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+img {
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+}
+
+.type1 {
+    background-color: green;
+    color: white;
+  }
+  
+  .type2 {
+    background-color: red;
+    color: white;
+  }
+  
+  .highlight {
+    border: 2px solid blue;
+  }
